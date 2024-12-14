@@ -30,7 +30,9 @@ export const loginService =async (req)=>{
                 },
             },
         ]);
-
+        if (!data || data.length === 0) {
+            return {status: "fail"};
+        }
         return {status: "success", data: data};
     }catch(e){
         return {status: "error", message:e.toString()}
